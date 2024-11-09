@@ -61,12 +61,12 @@ export default function App() {
   }), []);
 
   // Show splash screen while loading, otherwise navigate to the appropriate screen
-  if (isLoading) {
-    return <SplashScreenComponent />;
-  }
+  // if (isLoading) {
+  //   return <SplashScreenComponent />;
+  // }
 
   return (
-    <NavigationContainer>
+    <NavigationContainer independent={true}>>
       <StatusBar style="auto" />
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {userToken == null ? (
