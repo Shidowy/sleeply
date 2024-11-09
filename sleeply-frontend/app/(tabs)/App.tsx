@@ -66,7 +66,7 @@ export default function App() {
   // }
 
   return (
-    <NavigationContainer independent={true}>>
+    <NavigationContainer independent={true}>
       <StatusBar style="auto" />
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {userToken == null ? (
