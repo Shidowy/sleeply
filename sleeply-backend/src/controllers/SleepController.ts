@@ -1,7 +1,12 @@
 import { Request, Response } from 'express';
 
 export const logSleep = (req: Request, res: Response) => {
-  const { sleepDuration, sleepQuality } = req.body;
-  // Here, you would handle saving sleep data to the database
-  res.status(201).json({ message: 'Sleep data logged successfully' });
+  // Extract data from the request body
+  const { hours, quality, date } = req.body;
+
+  // For now, just send a response back with the received data
+  res.status(201).json({
+    message: 'Sleep data logged successfully!',
+    data: { hours, quality, date },
+  });
 };
