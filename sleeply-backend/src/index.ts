@@ -1,22 +1,27 @@
-import express, { Request, Response } from 'express';
-import sleepRoutes from './routes/sleepRoutes';
-import cors from 'cors';
+import 'reflect-metadata';
+import express from 'express';
+import { AppDataSource } from './data-source'; // Import your data source
+import userRoutes from './routes/authRoutes'; // Import routes
 
 const app = express();
 const port = 3000;
 
+app.use(express.json());
 
-app.use(cors());
-app.use(express.json());  // Middleware to parse JSON bodies
-
-// Link the routes
-app.use('/api/sleep', sleepRoutes);  // All routes in sleepRoutes will start with /api/sleep
-
-// Example of a basic route
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello, World!');
-});
-
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
-});
+// Initialize database connection
+AppDataSource.initialize()
+  .then(() => {
+    console.log('Connected to the database');
+    
+    // Define routes
+    app.use('/api/users', userRoutes);
+    
+    // Start the server
+    app.listen(port, () => {
+      console.log(`Server running on http://localhost:${port}`);
+    });
+  })
+  .catch((error) => {
+    console.error('Database connection error:', error);
+    process.exit(1); // Exit if the connection fails
+  });
