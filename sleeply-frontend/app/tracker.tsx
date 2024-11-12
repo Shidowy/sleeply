@@ -156,7 +156,7 @@ const SleepTrackingScreen = () => {
             <Image source={require('../assets/images/house.png')} style={styles.iconImage} />
             </TouchableOpacity>
             <TouchableOpacity style={[styles.navItem, styles.activeNavItem]}>
-            <Ionicons name="bed-outline" size={24} color="#A8D5BA" />
+            <Ionicons name="bed-outline" size={24} color="#1E1E1E" />
             </TouchableOpacity>
             <TouchableOpacity style={styles.navItem}>
             <Ionicons name="stats-chart" size={24} color="#A8D5BA" />
@@ -282,44 +282,30 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
-    paddingVertical: 20,
-    paddingHorizontal: 40,
-    borderRadius: 50,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 30,
     position: 'absolute',
     bottom: 20,
     left: 20,
     right: 20,
-    height: 80,
-    gap: 60,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.2,
-    shadowRadius: 10,
+    height: 70,
   },
-
-
-
   navItem: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: 60,
-    height: 60,
-    borderRadius: 35,
-    backgroundColor: '#fff',
-    marginHorizontal: 15,
+    width: 50,
+    height: 50,
+    borderRadius: 25,
   },
-
+  activeNavItem: {
+    backgroundColor: '#A8D5BA',
+  },
   iconImage: {
     width: 24,
     height: 24,
     tintColor: '#A8D5BA',
-  },
-
-  activeNavItem: {
-    backgroundColor: '#74AECB',
-    padding: 10,
-    borderRadius: 35,
   },
   navText: {
     fontFamily: 'PPMori-Regular',
